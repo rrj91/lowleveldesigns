@@ -98,7 +98,7 @@ public class Game {
     public void makeNextMove() throws InvalidMoveException {
         Player playerWhosMoveItIs = players.get(nextPlayerIndex);
         System.out.println("It is "+playerWhosMoveItIs.getName()+"'s turn!");
-        Move move = playerWhosMoveItIs.decideMove();
+        Move move = playerWhosMoveItIs.decideMove(board);
         int row = move.getCell().getRow();
         int col = move.getCell().getCol();
         if(row >= board.getSize() || col >= board.getSize() && !(board.getCells().get(row).get(col).getCellState() == CellState.EMPTY)){
