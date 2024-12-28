@@ -114,6 +114,10 @@ public class Game {
                 break;
             }
         }
+        if(moves.size() == board.getSize()*board.getSize()){
+            setGameStatus(GameStatus.DRAW);
+            return;
+        }
         nextPlayerIndex += 1;
         nextPlayerIndex %= players.size();
     }
