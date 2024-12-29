@@ -40,39 +40,12 @@ public class TicTacToeGame {
         Game game = gameController.createGame(dimension,players);
         System.out.println("Lets start the game!!");
         while(gameController.getGameStatus(game) == GameStatus.IN_PROGRESS){
-            //display current board
             gameController.displayBoard(game);
             try {
                 gameController.executeNextMove(game);
             }catch (InvalidMoveException e) {
                 System.out.println("You have mave invalid move please try again!");
             }
-            //Decide player order
-            //Collections.shuffle(players);
-            //Based on order
-                //Take a move from player
-                //Evaluate that move
-//            for(Player player: players){
-//                System.out.println("Player: "+player.getName()+" please make your move(row,col)!");
-//                int row = scanner.nextInt();
-//                int col = scanner.nextInt();
-//                Cell cell = new Cell(row,col);
-//                cell.setCellState(CellState.FILLED);
-//                cell.setPlayer(player);
-//                Move move = new Move();
-//                move.setCell(cell);
-//                move.setPlayer(player);
-//                game.getMoves().add(move);
-//                for(GameWinningStrategy gameWinningStrategy: game.getGameWinningStrategies()) {
-//                    gameWinningStrategy.evaluate(game);
-//                }
-//                if(gameController.getGameStatus(game) != GameStatus.IN_PROGRESS){
-//                    break;
-//                }
-//            }
-           //System.out.println("Player");
-
-           //break;
         }
         if(gameController.getGameStatus(game) == GameStatus.DRAW){
             System.out.println("Game has drawn");
