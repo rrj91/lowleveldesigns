@@ -23,7 +23,7 @@ public class TicketController {
             return generateTicketResponseDto;
         }catch (Exception ex) {
             GenerateTicketResponseDto generateTicketResponseDto = new GenerateTicketResponseDto();
-            generateTicketResponseDto.setFailureMessage("No Parking spot found");
+            generateTicketResponseDto.setFailureMessage("Some exception: "+ ex.getMessage());
             generateTicketResponseDto.setResponseStatus(ResponseStatus.FAILURE);
             return generateTicketResponseDto;
         }
