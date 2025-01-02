@@ -14,4 +14,28 @@ public class ShowSeatType extends BaseModel{
     @ManyToOne
     private Show show;
     private int price;
+
+    public ShowSeatType getSeatType() {
+        return seatType;
+    }
+
+    public void setSeatType(ShowSeatType seatType) {
+        this.seatType = seatType;
+    }
+
+    public Show getShow() {
+        return show;
+    }
+
+    public void setShow(Show show) {
+        this.show = show;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
