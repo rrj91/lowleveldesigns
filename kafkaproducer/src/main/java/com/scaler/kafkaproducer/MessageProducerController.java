@@ -1,6 +1,8 @@
 package com.scaler.kafkaproducer;
 
 import com.scaler.kafkaproducer.component.MessageProducer;
+import com.scaler.kafkaproducer.component.UserMessageProducer;
+import com.scaler.kafkaproducer.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +11,19 @@ import org.springframework.web.bind.annotation.*;
 public class MessageProducerController {
 
     @Autowired
-    private MessageProducer messageProducer;
+    private MessageProducer stringMessageProducer;
+    @Autowired
+    private UserMessageProducer userMessageProducer;
 
     @PostMapping("/topics/{topic}")
     @ResponseStatus(HttpStatus.OK)
     public void sendMessage(@PathVariable String topic, @RequestBody String message){
-        messageProducer.sendMessage(topic,message);
+        stringMessageProducer.sendMessage(topic,message);
+    }
+
+    @PostMapping("/topics/{topic}/users")
+    @ResponseStatus(HttpStatus.OK)
+    public void sendMessage(@PathVariable String topic, @RequestBody User user){
+        userMessageProducer.sendMessage(topic,user);
     }
 }

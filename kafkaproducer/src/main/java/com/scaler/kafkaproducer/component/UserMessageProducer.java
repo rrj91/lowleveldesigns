@@ -1,18 +1,19 @@
 package com.scaler.kafkaproducer.component;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.scaler.kafkaproducer.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MessageProducer {
-    @Autowired
-    @Qualifier("getKafkaTemplate")
-    private KafkaTemplate<String,String> kafkaTemplate;
+public class UserMessageProducer {
 
-    public void sendMessage(String topic,String message){
-        kafkaTemplate.send(topic,message);
+    @Autowired
+    @Qualifier("getJsonKafkaTemplate")
+    private KafkaTemplate<String, User> userKafkaTemplate;
+
+    public void sendMessage(String topic,User user){
+        userKafkaTemplate.send(topic,user);
     }
 }
