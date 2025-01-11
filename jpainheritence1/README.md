@@ -49,3 +49,14 @@ User savedStuByUserRepo = userRepository.save(student);
 ```
 Hibernate: insert into user (email,name,batch_name,psp,dtype,id) values (?,?,?,?,'Student',?)
 ```
+
+## Get All by User Repo
+- Query the table **without** dtype
+```
+select u1_0.id,u1_0.dtype,u1_0.email,u1_0.name,u1_0.instructor_rating,u1_0.batch_name,u1_0.psp from user u1_0
+```
+## Get all by student Repo
+- Query the table **with** dtype
+```
+select s1_0.id,s1_0.email,s1_0.name,s1_0.batch_name,s1_0.psp from user s1_0 where s1_0.dtype='Student'
+```

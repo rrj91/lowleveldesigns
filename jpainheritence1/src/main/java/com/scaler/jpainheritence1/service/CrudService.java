@@ -9,6 +9,8 @@ import com.scaler.jpainheritence1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CrudService {
 
@@ -38,5 +40,15 @@ public class CrudService {
 
         System.out.printf("User by user %s, Instructor by ins %s, Student by user %s",savedUserByUserRepo.getId(),savedByInsRepo.getId()
         ,savedStuByUserRepo.getId());
+        System.out.println();
+        System.out.println("From user Repo");
+        List<User> users = userRepository.findAll();
+        System.out.println(users);
+        System.out.println("From Student rep");
+        List<Student> students = studentRepository.findAll();
+        System.out.println(students);
+        System.out.println("From Instructor rep");
+        List<Instructor> instructors = instructorRepository.findAll();
+        System.out.println(instructors);
     }
 }
