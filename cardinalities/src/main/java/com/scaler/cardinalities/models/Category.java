@@ -1,9 +1,6 @@
 package com.scaler.cardinalities.models;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
 import java.util.List;
 
@@ -11,7 +8,7 @@ import java.util.List;
 public class Category extends BaseModel{
     private String name;
     private String description;
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Product> products;
 
     public String getName() {

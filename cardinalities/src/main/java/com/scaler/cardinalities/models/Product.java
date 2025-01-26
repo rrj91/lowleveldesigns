@@ -12,16 +12,16 @@ public class Product extends BaseModel{
     @ManyToOne
     private Category category;
 
-//    @OneToOne
-//    private Price price;
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Price price;
 
-//    public Price getPrice() {
-//        return price;
-//    }
-//
-//    public void setPrice(Price price) {
-//        this.price = price;
-//    }
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
 
     public Category getCategory() {
         return category;

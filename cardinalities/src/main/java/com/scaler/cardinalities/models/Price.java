@@ -5,7 +5,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 
-//@Entity
+@Entity
 public class Price extends BaseModel {
     @Enumerated(EnumType.ORDINAL)
     private Currency currency;
